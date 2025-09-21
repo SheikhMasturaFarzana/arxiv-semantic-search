@@ -34,7 +34,7 @@ def detect_language(text: str) -> str:
 
 
 def extract_metadata(doc: Dict) -> Dict:
-    # Base fields we already have
+    # Base fields 
     metadata = {
         "arxiv_id": doc.get("arxiv_id"),
         "title": doc.get("title", "").strip(),
@@ -47,13 +47,14 @@ def extract_metadata(doc: Dict) -> Dict:
         "crawl_date": doc.get("crawl_date"),
         "language": detect_language(doc.get("abstract", "")),
 
-        # New: first-page raw text from PDF
+        # first-page raw text from PDF
         "pdf_raw": "",
 
-        # Placeholders / later filled
+        
         "summary": None,
         "affiliations": [],
         "keywords": [],
+        # Placeholders / later filled by LLM
         "locations": [],
     }
 

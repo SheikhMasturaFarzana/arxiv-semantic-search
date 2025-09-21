@@ -11,9 +11,9 @@ METADATA_PATH = INDEX_DIR / "metadata.jsonl"
 FAISS_INDEX_PATH = INDEX_DIR / "faiss.index"
 
 # ---------- Constants ----------
-POOL_K = 200      # fixed pool size
-MIN_SIM = 0.40    # fixed similarity threshold
-MAX_RESULTS = 20  # fixed display cap
+POOL_K = 200      # pool size
+MIN_SIM = 0.40    # similarity threshold
+MAX_RESULTS = 20  # display at most this many results
 
 # ---------- Caching ----------
 @st.cache_data(show_spinner=False)
@@ -115,7 +115,6 @@ if query.strip():
         else:
             res_df = pd.DataFrame(columns=list(df_meta.columns) + ["__score__"])
 
-    # Sidebar filters (applied after similarity filter)
     with st.sidebar:
         st.header("Filters")
 

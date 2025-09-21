@@ -20,14 +20,8 @@ def cmd_crawl(args: argparse.Namespace) -> None:
 def cmd_preprocess(args: argparse.Namespace) -> None:
     preprocess.main()
 
-
-def cmd_embed(args: argparse.Namespace) -> None:
-    print("[pipeline] embed not implemented yet")
-
-
 def cmd_index(args: argparse.Namespace) -> None:
     build_index(model_name=args.model, limit=args.limit)
-
 
 def cmd_serve(args: argparse.Namespace) -> None:
     """Launch Streamlit app (UI)."""
@@ -53,9 +47,6 @@ def build_parser() -> argparse.ArgumentParser:
 
     # preprocess
     sub.add_parser("preprocess", help="Process raw → canonical").set_defaults(func=cmd_preprocess)
-
-    # embed (stub for now)
-    sub.add_parser("embed", help="Generate embeddings").set_defaults(func=cmd_embed)
 
     # index
     pi = sub.add_parser("index", help="Build FAISS index")

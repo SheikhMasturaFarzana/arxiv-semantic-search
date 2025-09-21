@@ -68,7 +68,7 @@ def build_index(model_name: str = "sentence-transformers/paraphrase-multilingual
     # Save embeddings
     np.save(INDEX_DIR / "embeddings.npy", embeddings)
 
-    # Save metadata (lightweight version)
+    # Save metadata 
     metadata_fields = [
         "arxiv_id", "title", "abstract", "summary",
         "authors", "categories", "affiliations",
@@ -79,7 +79,7 @@ def build_index(model_name: str = "sentence-transformers/paraphrase-multilingual
 
     # Build FAISS index
     dim = embeddings.shape[1]
-    index = faiss.IndexFlatIP(dim)  # cosine similarity (works since we normalized)
+    index = faiss.IndexFlatIP(dim)  # cosine similarity 
     index.add(embeddings)
 
     faiss.write_index(index, str(INDEX_DIR / "faiss.index"))

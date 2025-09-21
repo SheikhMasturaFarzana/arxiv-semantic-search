@@ -9,7 +9,6 @@ from tqdm.auto import tqdm
 
 ARXIV_API = "http://export.arxiv.org/api/query"
 HEADERS = {
-    # curl-like UA; arXiv behaves consistently with this
     "User-Agent": "curl/8.6.0",
     "Accept": "application/atom+xml",
 }
@@ -121,8 +120,6 @@ def _fetch_results(query: str, max_results: int, show_progress: bool, verbose: b
             fetched += len(entries)
             pbar.update(len(entries))
 
-            # IMPORTANT: do NOT break just because len(entries) < ask.
-            # Some responses return 100/200/etc — keep paging until 0.
             time.sleep(4)  # ToU: >= 3s between requests
 
     finally:
