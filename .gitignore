@@ -1,0 +1,13 @@
+# Ignore data dumps & cache
+data/raw/
+data/processed/*
+data/archive/
+data/pdf_cache/
+
+# Ignore index artifacts
+index/faiss/*.npy
+index/faiss/*.index
+
+# Python caches
+__pycache__/
+*.pyc
