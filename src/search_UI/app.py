@@ -6,7 +6,7 @@ import faiss
 from sentence_transformers import SentenceTransformer
 
 # ---------- Paths ----------
-INDEX_DIR = Path("index/faiss")
+INDEX_DIR = Path("index/")
 METADATA_PATH = INDEX_DIR / "metadata.jsonl"
 FAISS_INDEX_PATH = INDEX_DIR / "faiss.index"
 

@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 # Paths
 PROCESSED_DIR = Path("data/processed")
-INDEX_DIR = Path("index/faiss")
+INDEX_DIR = Path("index")
 INDEX_DIR.mkdir(parents=True, exist_ok=True)
 
 def merge_and_deduplicate(limit: int = None) -> pd.DataFrame:
